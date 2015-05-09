@@ -1,0 +1,98 @@
+.node-type-idea {
+    background-color: $darkerLightGrey;
+    padding: 2em;
+    @include mq($until:tablet){
+        padding: 1.5em 1em;
+    }
+    .region {
+        background-color: white;
+        padding: 0;
+    }
+    .node {
+        > .content {
+            // idea submitted by user
+            padding: 2em;
+            p {
+                margin: 0;
+                & + p {
+                    margin-top: 1em;
+                }
+            }
+        }
+        > .submitted {
+            // details about person who submitted idea
+            background-color: $midLightGrey;
+            display: block;
+            @extend %clearfix;
+            span {
+                display: block;
+                float: left;
+                &[rel*="creator"]{
+                    background-color: $seedlyGreen;
+                    a {
+                        padding: .5em .6em;
+                        display: inline-block;
+                        text-decoration: none;
+                        color: $nearBlack;
+                        &:hover {
+                            text-decoration: underline;
+                        }
+                    }
+                }
+                &[property*="date"]{
+                    background-color: $seedlyLightGreen;
+                    padding: .5em .6em;
+                }
+            }
+            
+        }
+    } 
+}
+
+.comment-wrapper {
+    background-color: $lightGrey;
+    font-size: .9em;
+}
+
+.comment {
+    background-color: $midLightGrey;
+    margin-top: 1em;
+    padding-bottom: 1.2em;
+    .content {
+        padding: 2em;
+    }
+    .submitted {
+        .permalink {
+            text-indent: 100%;
+            overflow: hidden;
+            width: 1em;
+            display: inline-block;
+            position: relative;
+            &:before {
+                content: "%";
+                position: absolute;
+                left: 0;
+                text-indent: 0;
+                width: 1em;
+                text-align: center;
+            }
+        }
+    }
+    .links.inline {
+        display: inline-block;
+        margin: 0;
+        * {
+            display: inline-block;
+            padding: 0;
+        }
+        a {
+            background-color: $seedlyGreen;
+            padding: .5em .6em;
+            color: $nearBlack;
+            text-decoration: none;
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+}

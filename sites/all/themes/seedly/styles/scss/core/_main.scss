@@ -1,0 +1,37 @@
+/// This is where everything that is universal and can't be related to a component should go
+
+html {
+    font-family: 'Noto Sans', sans-serif;
+    input, textarea, p, a {
+        font-family: inherit;
+    }
+    @include mq($until: tablet){
+        font-size: .95em;
+    }
+}
+
+
+.homeSpot {
+    a {
+//        @extend %spotlightLinks;
+    }
+    li + li {
+        a {
+            margin-top: .5em;
+        }
+    }
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin:0 0 .8em;
+    font-family: 'Lora', serif;
+    font-weight: normal;
+    &:after {
+        content: "";
+        
+    }
+}
+
+.region {
+    @extend %container;
+}

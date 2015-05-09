@@ -1,0 +1,24 @@
+
+/// base colours
+$lightGrey: #F9F9F9;
+$midLightGrey: #E3E3E3;
+$darkerLightGrey: #D6D6D6;
+$midGrey: #959595;
+$midDarkGrey: #3B3B3B;
+$darkGrey: #4d4d4d;
+
+$nearBlack: #222;
+
+//$heeBlue: #076ab2;
+//$heeLightBlue: #55a5e0;
+//$heeExtraLightBlue: #dcedfa;
+
+/// base hovers
+$lightGrey-hover: lighten($lightGrey, 3%);
+$darkGrey-hover: lighten($darkGrey, 3%);
+$midLightGrey-darken: darken($midLightGrey, 3%);
+
+$seedlyGreen: #2CC8A5;
+$seedlyLightGreen: #9DD4C7; 
+
+$distanceUnit: 1.3em;

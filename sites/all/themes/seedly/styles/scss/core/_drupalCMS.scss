@@ -1,0 +1,43 @@
+.drupalTabs {
+    position: fixed;
+    bottom: 0;
+    z-index: 1;
+    width: 100%;
+    background-color: white;
+    padding: 1em 1.4em;
+    font-size: .85em;
+    left: 0;
+    h2 {
+        margin: 0;
+    }
+    ul {
+        margin: 0;
+//        float: left;
+        display: inline-block;
+        padding: 0;
+        border-bottom: none;
+
+        li {
+            display: inline-block;
+            a {
+                padding: 0.5em 1.1em;
+                border:none;
+                background-color: #ededed;
+                margin: 0 0.6em 0 0;
+                display: inline-block;
+//                float: left;
+                &:hover{
+                    background-color: #ededed;
+                }
+            }
+            &.active a {
+                border:none;
+                background-color: #1572b8;
+                color:white;
+                &:hover{
+                    background-color: #358bd6;
+                }
+            }
+        }
+    }
+}

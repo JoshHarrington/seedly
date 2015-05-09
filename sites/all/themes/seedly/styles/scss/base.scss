@@ -1,0 +1,7 @@
+/// Base scss file
+/// This file should be bare of any actual css 
+/// it should only be used to import scss from other files
+
+@import "lib/imports";
+
+@import "core/imports";

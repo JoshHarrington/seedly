@@ -1,0 +1,32 @@
+.front {
+//    margin-top: 13em;
+    @extend %container;
+    padding: 0;
+    width: 90%;
+}
+
+
+.front .node {
+    width: 32%;
+    display: block;
+    margin-bottom: 1em;
+    .content {
+        padding: 1.5em;
+    }
+    @include mq($until:tablet){
+        width: 48.5%;
+    }
+}
+
+.column {
+    width: 32%;
+    @include mq($until:tablet){
+        width: 48.5%;
+    }
+}
+.gutter {
+    width: 2%;
+    @include mq($until:tablet){
+        width: 3%;
+    }
+}
