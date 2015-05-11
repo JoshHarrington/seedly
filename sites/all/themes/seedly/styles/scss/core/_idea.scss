@@ -19,38 +19,41 @@
                 }
             }
         }
-        > .submitted {
-            // details about person who submitted idea
-            background-color: $midLightGrey;
-            display: block;
-            @extend %clearfix;
-            span {
-                display: block;
-                float: left;
-                &[rel*="creator"]{
-                    background-color: $seedlyGreen;
-                    a {
-                        padding: .5em .6em;
-                        display: inline-block;
-                        text-decoration: none;
-                        color: $nearBlack;
-                        &:hover {
-                            text-decoration: underline;
-                        }
-                    }
-                }
-                &[property*="date"]{
-                    background-color: $seedlyLightGreen;
-                    padding: .5em .6em;
+    } 
+}
+.submitted {
+    // details about person who submitted idea
+    background-color: $midLightGrey;
+    display: block;
+    border-bottom: 1px solid $darkerLightGrey;
+    @extend %clearfix;
+    span {
+        display: block;
+        float: left;
+        &[rel*="creator"]{
+            a, span {
+                background-color: $seedlyGreen;
+                padding: .5em .6em;
+                display: inline-block;
+                color: $nearBlack;
+            }
+            a {
+                text-decoration: none;
+                &:hover {
+                    text-decoration: underline;
                 }
             }
-            
         }
-    } 
+        &[property*="date"]{
+            background-color: $seedlyLightGreen;
+            padding: .5em .6em;
+        }
+    }
+
 }
 
 .comment-wrapper {
-    background-color: $lightGrey;
+//    background-color: $lightGrey;
     font-size: .9em;
 }
 
@@ -95,4 +98,31 @@
             }
         }
     }
+}
+
+.addComment {
+    padding: 2em;
+    margin-bottom: 2em;
+    overflow: hidden;
+    background-color: $lightGrey;
+    .field-name-comment-body{
+        margin-bottom: 1em;
+    }
+    label {
+        margin-bottom: .6em;
+    }
+    input {
+        background-color: $seedlyGreen;
+        padding: .5em .6em;
+        color: $nearBlack;
+        text-decoration: none;
+        border: 0;
+        float: right;
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}
+
+.addComment {
 }

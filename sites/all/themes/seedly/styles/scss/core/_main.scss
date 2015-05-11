@@ -10,6 +10,10 @@ html {
     }
 }
 
+.marker, .form-required {
+    color: $seedlyGreen;
+}
+
 
 .homeSpot {
     a {
@@ -34,4 +38,8 @@ h1, h2, h3, h4, h5, h6 {
 
 .region {
     @extend %container;
+}
+
+.logged-in {
+    margin-bottom: 4em;
 }
