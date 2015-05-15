@@ -80,7 +80,4 @@
     <?php endif; ?>
     
     
-        <div class="column"></div>
-    <div class="gutter"></div>
-
     <?php print render($page['content']); ?>

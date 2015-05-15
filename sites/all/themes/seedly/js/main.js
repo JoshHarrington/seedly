@@ -14,9 +14,9 @@ var PAGE;
     
         function masonryLoad() {
             
-            if($('.front').length){
+            if($('.masonryWrapper').length){
                 
-                var $container = $('.front');
+                var $container = $('.masonryWrapper');
 
                 //check that everything's loaded before calling masonry
                 $container.imagesLoaded( function() {
@@ -24,7 +24,7 @@ var PAGE;
                     $container.masonry({
                       columnWidth: '.column',
                       gutter: '.gutter',
-                      itemSelector: '.node'
+                      itemSelector: '.masonryBlock'
                     });
                 });
 

@@ -1,12 +1,12 @@
-.front {
+.masonryWrapper {
 //    margin-top: 13em;
     @extend %container;
     padding: 0;
-    width: 90%;
+    width: 100%;
 }
 
 
-.front .node {
+.masonryWrapper .masonryBlock {
     width: 32%;
     display: block;
     margin-bottom: 1em;
@@ -16,12 +16,18 @@
     @include mq($until:tablet){
         width: 48.5%;
     }
+    @include mq($until:smallTablet){
+        width: 100%;
+    }
 }
 
 .column {
     width: 32%;
     @include mq($until:tablet){
         width: 48.5%;
+    }
+    @include mq($until:smallTablet){
+        width: 100%;
     }
 }
 .gutter {

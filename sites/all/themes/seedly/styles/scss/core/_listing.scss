@@ -1,6 +1,27 @@
 .front {
-    background-color: $lightGrey;
+//    background-color: $lightGrey;
     .node {
-        background-color: white;
+//        background-color: white;
+    }
+}
+
+.ideaBlock {
+    a {
+        background-color: white;   
+        transition: border-color .3s;
+        padding: 2em;
+        display: block;
+        text-decoration: none;
+        color: $nearBlack;
+        border-top: 1em solid lighten($seedlyGreen, 40%);
+        * {
+            margin: 0;
+            & + * {
+                margin-top: 1em;
+            }
+        }
+        &:hover {
+            border-top: 1em solid lighten($seedlyGreen, 20%);
+        }
     }
 }
