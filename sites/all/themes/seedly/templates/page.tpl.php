@@ -79,5 +79,9 @@
     </nav>
     <?php endif; ?>
     
+    <div class="homeLink-wrap">
+        <a href="/" class="homeLink">Home</a>
+        
+    </div>
     
     <?php print render($page['content']); ?>

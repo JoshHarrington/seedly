@@ -30,10 +30,10 @@ h1, h2, h3, h4, h5, h6 {
     margin:0 0 .8em;
     font-family: 'Lora', serif;
     font-weight: normal;
-    &:after {
-        content: "";
-        
-    }
+//    &:after {
+//        content: "";
+//        
+//    }
 }
 
 .region {
@@ -42,8 +42,30 @@ h1, h2, h3, h4, h5, h6 {
 
 .logged-in {
     margin-bottom: 4em;
+    .region {
+        margin-top: 4em;
+    }
 }
 
 html {
     background-color: $lightGrey;
+}
+
+.homeLink-wrap {
+    background-color: $midGrey;
+}
+
+.newContentLink, .homeLink {
+    background-color: $seedlyGreen;
+    display: inline-block;
+    padding: .6em .8em;
+    color:$nearBlack;
+    text-decoration: none;
+    &:hover, &:focus {
+        text-decoration: underline;
+    }
+}
+
+.newContentLink {
+    margin-bottom: 2em;
 }

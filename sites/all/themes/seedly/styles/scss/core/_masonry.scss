@@ -7,26 +7,22 @@
 
 
 .masonryWrapper .masonryBlock {
-    width: 32%;
     display: block;
     margin-bottom: 1em;
     .content {
         padding: 1.5em;
     }
+}
+
+.column, .masonryWrapper .masonryBlock {
+    width: 32%;
     @include mq($until:tablet){
         width: 48.5%;
     }
     @include mq($until:smallTablet){
         width: 100%;
     }
-}
-
-.column {
-    width: 32%;
-    @include mq($until:tablet){
-        width: 48.5%;
-    }
-    @include mq($until:smallTablet){
+    .no-js & {
         width: 100%;
     }
 }

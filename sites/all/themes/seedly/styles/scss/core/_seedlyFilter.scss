@@ -1,0 +1,60 @@
+.seedlyFilter {
+    background-color: $darkerLightGrey;
+    padding: 1em 0;
+    margin-bottom: 2em;
+    h2 {
+        position: relative;
+        font-family: 'Noto Sans', sans-serif;
+        padding: 0 .6666em;
+        padding: 0 1rem;
+        &:before {
+            position: absolute;
+            content: "";
+            left:-.5em;
+            width: .5em;
+            height: 100%;
+            display: block;
+            background-color: $seedlyGreen;
+        }
+    }
+    .fieldBtnWrap {
+        padding: 0 1em;
+        .views-exposed-widget {
+            padding: 0;
+        }
+        input[type="submit"]{
+            margin-top: 0;
+        }
+        .fieldBtnWrap-input {
+            width: calc(100% - 4em);
+            input {
+                width: 100%;
+                border: none;
+                padding: .6em .8em;
+                &:focus {
+                    border: none;
+                    outline: none;
+                    box-shadow: inset 0px -1px 0px 0px $seedlyGreen;
+                }
+            }
+        }
+        .fieldBtnWrap-submit {
+            width: 4em;
+            input {
+                background-color: $seedlyGreen;
+                transition:background-color .3s;
+                border: none;
+                width: 100%;
+                padding: .6em .8em;
+                color: white;
+                &:focus {
+                    border: none;
+                    outline: none;
+                }
+                &:hover {
+                    background-color: darken($seedlyGreen, 5%);
+                }
+            }
+        }
+    }
+}
