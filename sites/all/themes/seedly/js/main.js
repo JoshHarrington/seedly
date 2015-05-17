@@ -32,6 +32,15 @@ var PAGE;
 
 
         }
+        
+        function showAddComments() {
+            if ($('.addComment').length){
+                $('.addCommentBar').click(function(){
+                    $(this).parent().toggleClass('open');
+                    $('.addComment .toggleAddComment').toggleClass('open');
+                });
+            }
+        }
 
         function selectButtonClick() {
             /// stuff
@@ -44,6 +53,7 @@ var PAGE;
                 
                 masonryLoad();
 //                PointerEventsPolyfill.initialize({});
+                showAddComments();
 
             }
         };

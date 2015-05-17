@@ -37,21 +37,30 @@
  */
 ?>
 
-<div id="comments" class="<?php print $classes; ?>"<?php print $attributes; ?>>
- 
-     
   <?php if ($content['comment_form']): ?>
      <div class="addComment">
-       
-    <h2 class="title comment-form"><?php print t('This discussion is missing your voice!'); ?></h2>
-    <?php 
-        hide($content['comment_form']['subject']);
-         hide($content['comment_form']['comment_body']['und']['0']['format']);
-        print render($content['comment_form']['comment_body']); 
-        print render($content['comment_form']['actions']['submit']); 
-    ?>
+     
+     <div class="addCommentBar">
+          <span class="toggleAddComment"></span>
+
+            <h2 class="title comment-form"><?php print t('Add your thoughts'); ?></h2>
+         
+     </div>
+        <div class="addCommentContent">
+            
+            <?php 
+                hide($content['comment_form']['subject']);
+                 hide($content['comment_form']['comment_body']['und']['0']['format']);
+                print render($content['comment_form']['comment_body']); 
+                print render($content['comment_form']['actions']['submit']); 
+            ?>
+        </div>
      </div>
   <?php endif; ?>
+  
+ 
+     
+<div id="comments" class="<?php print $classes; ?>"<?php print $attributes; ?>>
 
   <?php print render($content['comments']); ?>
 </div>

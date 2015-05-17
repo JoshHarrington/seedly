@@ -1,5 +1,5 @@
 .node-type-idea {
-    background-color: $darkerLightGrey;
+//    background-color: $darkerLightGrey;
     padding: 2em;
     @include mq($until:tablet){
         padding: 1.5em 1em;
@@ -101,10 +101,72 @@
 }
 
 .addComment {
-    padding: 2em;
-    margin-bottom: 2em;
     overflow: hidden;
-    background-color: $lightGrey;
+    background-color: white;
+    border: 1px solid $lightGrey;
+    position: fixed;
+    bottom: 0;
+    max-height: 4em;
+    width: 100%;
+    max-width: 65em;
+    .addCommentBar {
+        padding: 1em 2em;
+        cursor: pointer;
+        background-color: white;
+        transition: background-color .3s;
+        border-bottom: 1px solid $lightGrey;
+        &:hover {
+            background-color: lighten($lightGrey, 2%);
+        }
+        
+    }
+    .no-js & {
+        max-height: none;
+        position: relative;
+        margin-bottom: 2em;
+    }
+    transition: max-height .4s;
+    &:hover {
+        max-height: 4.5em;
+    }
+    &.open {
+        &, &:hover {
+           max-height: 30em; 
+        }
+    }
+    h2 {
+        margin-bottom: 0;
+        font-family: 'Noto Sans', sans-serif;
+        font-weight: 1.1em;
+        
+    }
+    .toggleAddComment {
+        outline: none;
+        border: none;
+        float: right;
+        background-color: $seedlyGreen;
+        transition:background-color .3s;
+        border: none;
+//        width: 100%;
+          font-size: 1.4em;
+        padding: .3em .8em 0em;
+        color: white;
+
+        &:before {
+            content: "\2c4";
+        }
+        &.open {
+            &:before {
+                content: "\2c5";
+            }
+            
+        }
+    }
+    
+    .addCommentContent {
+        padding: 1em 2em;
+    }
+    
     .field-name-comment-body{
         margin-bottom: 1em;
     }
@@ -122,7 +184,4 @@
             text-decoration: underline;
         }
     }
-}
-
-.addComment {
 }

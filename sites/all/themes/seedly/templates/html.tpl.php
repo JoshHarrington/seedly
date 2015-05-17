@@ -93,11 +93,11 @@
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
         <script>window.jQuery || document.write('<script src="/sites/all/themes/seedly/js/vendor/jquery-1.11.2.min.js"><\/script>')</script>
         
-        <script src="<?php print path_to_theme() ?>/js/vendor/imagesloaded.pkgd.min.js"></script>
-        <script src="<?php print path_to_theme() ?>/js/vendor/masonry.pkgd.min.js"></script>
+        <script src="/<?php print path_to_theme() ?>/js/vendor/imagesloaded.pkgd.min.js"></script>
+        <script src="/<?php print path_to_theme() ?>/js/vendor/masonry.pkgd.min.js"></script>
         
-        <script src="<?php print path_to_theme() ?>/js/min/plugins.min.js"></script>
-        <script src="<?php print path_to_theme() ?>/js/min/main.min.js"></script>
+        <script src="/<?php print path_to_theme() ?>/js/min/plugins.min.js"></script>
+        <script src="/<?php print path_to_theme() ?>/js/min/main.min.js"></script>
 
         <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
         <script>

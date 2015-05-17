@@ -1,6 +1,11 @@
 .drupalTabs {
-    position: fixed;
-    bottom: 0;
+//    position: fixed;
+//    bottom: 0;
+    
+    @extend %container;
+    max-width: 65rem;
+    
+    
     z-index: 1;
     width: 100%;
     background-color: white;
