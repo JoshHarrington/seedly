@@ -95,5 +95,7 @@
     <?php endif; ?>
   </div>
 
+  <?php var_dump($content['links']) ?>
   <?php print render($content['links']) ?>
+  
 </div>

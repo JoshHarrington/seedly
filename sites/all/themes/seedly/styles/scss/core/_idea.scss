@@ -1,6 +1,5 @@
 .node-type-idea {
 //    background-color: $darkerLightGrey;
-    padding: 2em;
     @include mq($until:tablet){
         padding: 1.5em 1em;
     }
