@@ -1,0 +1,19 @@
+.conductCode {
+    display: none;
+    .conductFalse & {
+        display: block;
+    }
+    background-color: white;
+    padding: 2em;
+    margin-bottom: 2em;
+    .conductBtn {
+        display: inline-block;
+        background: $seedlyGreen;
+        padding: .5em .8em;
+        text-decoration: none;
+        color: $nearBlack;
+        &:hover, &:focus {
+            text-decoration: underline;
+        }
+    }
+}

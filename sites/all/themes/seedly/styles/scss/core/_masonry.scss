@@ -9,6 +9,24 @@
 .masonryWrapper .masonryBlock {
     display: block;
     margin-bottom: 1em;
+    float: left;
+    margin-left: 2%;
+    &:nth-child(3n+3){
+        clear: left;
+        margin-left: 0;
+        @include mq($until:tablet){
+            clear: none;
+            margin-left: 3%;
+        }
+    }
+    @include mq($until:tablet){
+        margin-left: 3%;
+        &:nth-child(2n+2){
+            clear: left;
+            margin-left: 0;
+        }
+        
+    }
     .content {
         padding: 1.5em;
     }
@@ -23,7 +41,7 @@
         width: 100%;
     }
     .no-js & {
-        width: 100%;
+//        width: 100%;
     }
 }
 .gutter {

@@ -28,4 +28,21 @@
 <a href="node/<?php print render($fields['nid']->content); ?>">
     <h2><?php print render($fields['title']->content); ?></h2>
     <?php print render($fields['body']->content); ?>
+    <span class="commmentCount">
+       <svg>
+            <use xlink:href="#_question-answer"></use>
+        </svg>
+        <?php if($fields['comment_count']->content > 0) : ?>  
+
+            <span class="commentNumber">
+                &#91;<?php print render($fields['comment_count']->content); ?>&#93; 
+            </span>
+        <?php endif; ?>
+    </span>
+    <span class="thumbCount">
+       <svg>
+            <use xlink:href="#_thumbs-up-down"></use>
+        </svg>
+        
+    </span>
 </a>

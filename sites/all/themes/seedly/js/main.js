@@ -24,8 +24,9 @@ var PAGE;
                     $container.masonry({
                       columnWidth: '.column',
                       gutter: '.gutter',
-                      itemSelector: '.masonryBlock'
+                      itemSelector: '.views-row'
                     });
+                    $('.masonryWrapper .views-row').css('margin-left','0');
                 });
 
             }
@@ -42,8 +43,14 @@ var PAGE;
             }
         }
 
-        function selectButtonClick() {
-            /// stuff
+        function conductMessageCookie() {
+            $('.conductBtn').on('click', function(){
+                Cookies.set('conduct', 'happy');     
+                $('.conductCode').slideUp();
+            });
+            if (!Cookies.get('conduct') ) {
+                $('body').addClass('conductFalse');
+            }
         }
         
         
@@ -54,6 +61,7 @@ var PAGE;
                 masonryLoad();
 //                PointerEventsPolyfill.initialize({});
                 showAddComments();
+                conductMessageCookie();
 
             }
         };

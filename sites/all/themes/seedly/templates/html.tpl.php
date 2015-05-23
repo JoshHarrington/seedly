@@ -80,6 +80,7 @@
         <![endif]-->
         
         
+        <?php include_once path_to_theme() . '/assets/icons/svgdefs.svg'; ?>
         
         <?php include_once path_to_theme() . '/templates/components/includes/header.php'; ?>
         
@@ -95,6 +96,8 @@
         
         <script src="/<?php print path_to_theme() ?>/js/vendor/imagesloaded.pkgd.min.js"></script>
         <script src="/<?php print path_to_theme() ?>/js/vendor/masonry.pkgd.min.js"></script>
+        
+        <script src="/<?php print path_to_theme() ?>/js/vendor/js.cookie.min.js"></script>
         
         <script src="/<?php print path_to_theme() ?>/js/min/plugins.min.js"></script>
         <script src="/<?php print path_to_theme() ?>/js/min/main.min.js"></script>

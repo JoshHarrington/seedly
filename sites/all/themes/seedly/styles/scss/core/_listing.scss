@@ -8,8 +8,9 @@
 .ideaBlock {
     a {
         background-color: white;   
+        position: relative;
         transition: border-color .3s;
-        padding: 2em;
+        padding: 2em 2em 6em 2em;
         display: block;
         text-decoration: none;
         color: $nearBlack;
@@ -24,4 +25,32 @@
             border-top: 1em solid lighten($seedlyGreen, 20%);
         }
     }
+}
+
+.commmentCount, .thumbCount {
+    width: 50%;
+    display: block;
+    position: absolute;
+    bottom: 0;
+    text-align: center;
+    padding: 1em;
+    color:$nearBlack;    
+    svg {
+        width: 1.5em;
+        height: 1.5em;
+        fill:currentColor;
+    }
+}
+
+.commmentCount {
+    left: 0;
+    background-color: $seedlyGreen;
+    .commentNumber {
+        font-size: .9em;
+    }
+}
+
+.thumbCount {
+    right: 0;
+    background-color: $seedlyThumbBlue;    
 }
