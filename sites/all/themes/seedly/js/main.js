@@ -44,9 +44,10 @@ var PAGE;
         }
 
         function conductMessageCookie() {
-            $('.conductBtn').on('click', function(){
+            $('.conductBtn').on('click', function(e){
                 Cookies.set('conduct', 'happy');     
                 $('.conductCode').slideUp();
+                e.preventDefault();
             });
             if (!Cookies.get('conduct') ) {
                 $('body').addClass('conductFalse');

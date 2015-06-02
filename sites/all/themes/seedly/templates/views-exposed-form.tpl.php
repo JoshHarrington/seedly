@@ -90,8 +90,8 @@
 
 <section class="conductCode">
     <h2>Code of conduct</h2>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt consectetur voluptatum commodi saepe voluptas, assumenda ex. Incidunt doloribus labore veniam vitae eius ipsam ipsum, delectus tenetur ex ut, tempora itaque corrupti reiciendis tempore alias error dolorem ratione? Vitae velit rem aut aperiam, eius! Blanditiis, fugit, ipsa odio sit amet molestiae.</p>
-    <a href="#na" class="conductBtn">Hello there</a>
+    <p>When posting on here please bear in mind that this is a place for new ideas and constructive criticism, not abuse. Bluntness is very welcome, just consider people's feelings before posting! Thanks.</p>
+    <a href="#na" class="conductBtn">Got it</a>
 </section>
 
 
