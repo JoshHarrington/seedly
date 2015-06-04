@@ -54,6 +54,25 @@ var PAGE;
             }
         }
         
+        function whichThumb() {
+            if ($('.rate-widget').length) {
+                if ($('.rate-info').length) {
+                    var rateInfoText = $('.rate-info').text();
+                    if (rateInfoText.indexOf('yes') >= 0){
+                        /// add class to thumbs up to show it's already been picked
+                        $('.thumbUp').addClass('picked');
+                        $('.thumbDown').removeClass('picked');
+                    } else {
+                        /// add class to thumbs down to show it's already been picked
+                        $('.thumbDown').addClass('picked');
+                        $('.thumbUp').removeClass('picked');
+                    }
+                } else {
+                    $('.thumb-vote').removeClass('picked');
+                }
+            }
+        }
+        
         
         return {
             // public members
@@ -63,6 +82,7 @@ var PAGE;
 //                PointerEventsPolyfill.initialize({});
                 showAddComments();
                 conductMessageCookie();
+                whichThumb();
 
             }
         };
