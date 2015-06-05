@@ -12,13 +12,21 @@
             content: "";
             left:-.5em;
             width: .5em;
-            height: 100%;
+            height: 140%;
+            top:-20%;
             display: block;
             background-color: $seedlyGreen;
         }
     }
     .fieldBtnWrap {
-        padding: 0 1em;
+        padding: 0;
+        .fieldBtnWrap {
+            padding: 0 1em;
+            .fieldBtnWrap-input {
+                padding: 0;
+                margin-bottom: 1em;
+            }
+        }
         .views-exposed-widget {
             padding: 0;
         }
@@ -26,7 +34,11 @@
             margin-top: 0;
         }
         .fieldBtnWrap-input {
-            width: calc(100% - 4em);
+//            width: calc(100% - 4em);
+            width: 100%;
+            padding: 0 1em;
+            margin-bottom: 2em;
+            float: none;
             input {
                 width: 100%;
                 border: none;
@@ -39,7 +51,7 @@
             }
         }
         .fieldBtnWrap-submit {
-            width: 4em;
+//            width: 4em;
             input {
                 background-color: $seedlyGreen;
                 transition:background-color .3s;
@@ -61,6 +73,7 @@
             .form-item {
                 display: inline-block;
                 margin-right: .2em;
+                margin-bottom: .3em;
                 input {
                     @extend %hideInput;
                 }
@@ -70,6 +83,7 @@
                     display: inline-block;
                     padding: .6em;
                     cursor: pointer;
+                    @extend %noHighlight;
                     transition: background-color .3s, border-color .3s, color .3s;
                     &:hover {
 //                        color:white;
@@ -83,5 +97,20 @@
                 }
             }
         } 
+    }
+    .form-select {
+        border: 0;
+        font-size: 1.2em;
+        margin-right: .6em;
+        margin-top: .25em;
+    }
+    .form-type-select {
+        label {
+            display: none;
+        }
+    }
+    .views-submit-button {
+        clear: left;
+        margin-top: 1em;
     }
 }
