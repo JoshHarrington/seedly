@@ -1,0 +1,5 @@
+name = Comment Reporting
+description = A module to allow comments to be reported to the site admin.
+core = 7.x
+
+

@@ -1,0 +1,192 @@
+<?php 
+
+function comment_reporting_menu() {
+  $items = array();
+
+  $items['comment/%/report'] = array(
+    'access arguments' => array('send comment reports'),
+    'type' => MENU_CALLBACK,    
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('comment_reporting_report_form', 1),
+  );
+
+  return $items;
+}
+
+
+/**
+ * Implements hook_permission().
+ */
+function comment_reporting_permission() {
+  return array(
+    'administer comment reports' => array(
+      'title' => t('Administer comment reports'),
+      'description' => t('Allow for a role to administer the Comment Reporting options.'),
+    ),
+    'send comment reports' => array(
+      'title' => t('Send comment reports'),
+      'description' => t('Allow for the role to send comment reports.'),
+    ),
+  );
+}
+
+/**
+ * Implements hook_comment_view().
+ */
+function comment_reporting_comment_view($comment, $view_mode, $langcode) {
+
+  $comment->content['links']['comment']['#links']['comment-report'] = comment_reporting_get_link(t('report comment.'), $comment->cid);
+
+}
+
+function comment_reporting_get_link($text, $cid) {
+ return array(
+    'title' => $text, 
+    'href' =>  'comment/' . $cid . '/report',
+    'html' => true,
+  );
+}
+
+function comment_reporting_report_form($form, &$form_state, $comment_id) {
+  $form = array();
+  
+  $form['report_errors'] = array(  
+    '#markup' => '<div id="comment_reporting_messages"></div>',
+  );
+  
+  $form['report_comment'] = array(
+    '#type' => 'textfield',
+    '#title' => 'Comment ID',
+    '#value' => $comment_id,
+  );
+
+  $form['report_email'] = array(
+    '#type' => 'textfield',
+    '#title' => 'Your Email Address',
+  );
+  
+  $form['report_message'] = array(
+    '#type' => 'textarea',
+    '#title' => 'Why are you reporting this comment?',
+  );
+
+  $form['report_submit'] = array(
+    '#type' => 'submit',
+    '#value' => 'Send Report',
+    '#required' => true,
+    '#ajax' => array(
+      'wrapper' => 'comment-reporting-report-form',
+      'callback' => 'comment_reporting_submit_form',
+      'method' => 'replace',
+    ),
+  );
+  
+  return $form;
+}
+
+function comment_reporting_submit_form($form, &$form_state) {
+
+  //no comment id
+  if($form_state['input']['report_comment'] == '' || $form_state['input']['report_comment'] == 0 ) {    
+    $failed_message = 'Comment reference missing.  Try reporting the comment again';
+    $form_state['response'] = array('message' => $failed_message, 'type' => 'replace', 'wrapper' => 'comment_reporting_messages');
+  }
+  
+  if($form_state['input']['report_message'] == '' || $form_state['input']['report_message'] == null) {
+    $failed_message = 'Message missing.  Please fill in the message field';    
+    $form_state['response'] = array('message' => $failed_message, 'type' => 'replace', 'wrapper' => 'comment_reporting_messages');
+  }
+
+  if(isset($form_state['response'])) {
+   
+    switch($form_state['response']['type']) {
+      default :
+        $commands[] = ajax_command_html('#' .$form_state['response']['wrapper'], $form_state['response']['message']);
+      break;      
+    }
+  }
+    
+  return array('#type' => 'ajax', '#commands' => $commands);
+}
+
+function comment_reporting_report_form_validate($form, &$form_state) {
+  if($form_state['input']['report_comment'] == '' || $form_state['input']['report_comment'] == 0 ) {    
+    drupal_set_message('Comment reference missing.  Try reporting the comment again', 'error');
+  }
+  
+  if($form_state['input']['report_message'] == '' || $form_state['input']['report_message'] == null) {
+    drupal_set_message('Message missing.  Please fill in the message field', 'error');    
+  }
+}
+
+function comment_reporting_report_form_submit($form, &$form_state) {
+  global $user;
+  global $base_url;
+  
+  //this seems to be a way to tell the ajax and non-ajax submissions apart for now, but be careful with it
+  $ajax = (isset($form_state['no_redirect'])) ? true : false;
+
+  if($form_state['input']['report_comment'] == '' || $form_state['input']['report_comment'] == 0 || 
+    $form_state['input']['report_message'] == '' || $form_state['input']['report_message'] == null) {
+      return;
+  }
+  
+ 
+  $email_address = ($user) ? $user->mail : 'User is annonymous'; 
+  $comment_link = url($base_url . '/comment/'.$form_state['input']['report_comment']);
+  
+  $email = 
+"Hi Admin, <br /><br />
+  
+A comment on your site has been reported.  The details are below. <br /><br />
+   
+Comment ID : ".$form_state['input']['report_comment']." <br /><br />
+  
+Reporters Message : ".$form_state['input']['report_message']." <br /><br />
+   
+Reporters Email : ".$form_state['input']['report_email']." <br /><br />
+
+Signed In User : ".$email_address." <br /><br />
+  
+You can see this comment here: ".$comment_link." <br /><br /><br />
+  
+Regards,<br /><br />
+  
+The Comment Reporting System <br /><br />
+";
+  
+  
+  $from = variable_get('site_mail');
+  $site_name = variable_get('site_name');
+  
+  $params = array();
+  $params['body'] = $email;
+  $params['subject'] = 'Comment Report from '. $site_name;   
+  
+  $message = drupal_mail('comment_reporting', 'comment_report', $from, language_default(), $params, $from, FALSE);
+  $message['headers']['Content-Type'] = 'text/html; charset=UTF-8;';            
+  
+  // Retrieve the responsible implementation for this message.
+  $system = drupal_mail_system('comment_reporting', 'comment_report');
+
+  $message['subject'] = $params['subject'];
+  $message['body'] = array($params['body']);   
+  
+  // Format the message body.
+  $message = $system->format($message);  
+  
+  $message['subject'] = $params['subject'];
+  $message['body'] = $params['body'];  
+    
+  // Send e-mail.
+  $message['result'] = $system->mail($message);  
+  
+  
+  $success_message = 'Thank you. Your report has been sent to the Site Admin';
+  if($ajax) { 
+    $form_state['response'] = array('message' => $success_message, 'type' => 'replace', 'wrapper' => 'comment-reporting-report-form');
+  }
+  else {
+    drupal_set_message($success_message, 'status');  
+  }
+}
