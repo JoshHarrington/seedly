@@ -35,7 +35,7 @@ function comment_reporting_permission() {
  */
 function comment_reporting_comment_view($comment, $view_mode, $langcode) {
 
-  $comment->content['links']['comment']['#links']['comment-report'] = comment_reporting_get_link(t('report comment.'), $comment->cid);
+  $comment->content['links']['comment']['#links']['comment-report'] = comment_reporting_get_link(t('Report comment'), $comment->cid);
 
 }
 

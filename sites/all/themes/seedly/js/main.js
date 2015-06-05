@@ -82,7 +82,7 @@ var PAGE;
 //                PointerEventsPolyfill.initialize({});
                 showAddComments();
                 conductMessageCookie();
-                whichThumb();
+//                whichThumb();
 
             }
         };

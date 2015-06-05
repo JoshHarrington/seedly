@@ -56,5 +56,32 @@
                 }
             }
         }
+        .bef-checkboxes {
+            margin-bottom: 1em;
+            .form-item {
+                display: inline-block;
+                margin-right: .2em;
+                input {
+                    @extend %hideInput;
+                }
+                label {
+                    background-color: $seedlyPurple-light;
+                    border-bottom: .15em solid $seedlyPurple;
+                    display: inline-block;
+                    padding: .6em;
+                    cursor: pointer;
+                    transition: background-color .3s, border-color .3s, color .3s;
+                    &:hover {
+//                        color:white;
+                        background-color: darken($seedlyPurple-light, 5%);
+                    }
+                }
+                input:checked + label {
+                    color:white;
+                    background-color: $seedlyPurple;
+                    border-bottom: .15em solid $seedlyPurple-light;
+                }
+            }
+        } 
     }
 }

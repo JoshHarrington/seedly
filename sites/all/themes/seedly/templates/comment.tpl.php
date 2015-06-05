@@ -94,7 +94,24 @@
     </div>
     <?php endif; ?>
   </div>
-
-  <?php print render($content['links']) ?>
+   
+    <a href="<?php print url(($content['links']['comment']['#links']['comment-report']['href']) ); ?>" class="abuseBtn">
+       <span class="btn">
+            <svg>
+                <use xlink:href="#_alert"></use>
+            </svg>
+       </span>
+       <span class="flyOut"><?php print($content['links']['comment']['#links']['comment-report']['title']) ?></span>
+    </a>
+    
+<!--     title=""-->
+  
+    <?php 
+        unset($content['links']['comment']['#links']['comment-report']); 
+        print render($content['links']);
+    ?>
+  
+  
+  
   
 </div>

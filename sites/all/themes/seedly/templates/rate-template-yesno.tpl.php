@@ -1,4 +1,4 @@
-<a class="thumb-vote thumbUp" href="<?php print $links[0]['href']; ?>">
+<a class="thumb-vote rate-button thumbUp<?php print ($results['user_vote'] == 'yes') ? ' picked' : ''; ?>" href="<?php print $links[0]['href']; ?>">
     <svg>
         <use xlink:href="#_thumb-up"></use>
     </svg>
@@ -7,7 +7,7 @@
         <span>&#91;<?php print $links[0]['votes']; ?>&#93;</span>
     <?php endif; ?>
 </a>
-<a class="thumb-vote thumbDown" href="<?php print $links[1]['href']; ?>">
+<a class="thumb-vote rate-button thumbDown<?php print ($results['user_vote'] == 'no') ? ' picked' : ''; ?>" href="<?php print $links[1]['href']; ?>">
     <svg>
         <use xlink:href="#_thumb-down"></use>
     </svg>
@@ -15,9 +15,3 @@
         <span>&#91;<?php print $links[1]['votes']; ?>&#93;</span>
     <?php endif; ?>
 </a>
-
-<?php
-    if ($info) {
-      print '<div class="rate-info">' . $info . '</div>';
-    }
-?>
