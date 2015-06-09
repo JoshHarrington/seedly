@@ -26,9 +26,20 @@
     print $q;
   ?>
 <?php endif; ?>
-<div class="views-exposed-form seedlyFilter">
+<div class="views-exposed-form seedlyFilter filter-form">
  
   <div class="views-exposed-widgets clearfix">
+   
+     <span class="collapseBtn">
+        <svg class="more">
+            <use xlink:href="#_expand-less"></use>  
+        </svg>
+        <svg class="less"> 
+            <use xlink:href="#_expand-more"></use>
+        </svg>
+      </span>
+
+   
     <?php foreach ($widgets as $id => $widget): ?>
        <h2>
         <?php if (!empty($widget->label)): ?>
@@ -37,6 +48,8 @@
           </label>
         <?php endif; ?>
        </h2>
+       
+       
        <div class="fieldBtnWrap">
            
           <div id="<?php print $widget->id; ?>-wrapper" class="views-exposed-widget fieldBtnWrap-input views-widget-<?php print $id; ?>">
@@ -86,7 +99,6 @@
 </div>
 
 
-<a class="newContentLink" href="/node/add/idea">Create your own content</a>
 
 <section class="conductCode">
     <h2>Code of conduct</h2>

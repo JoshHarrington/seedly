@@ -72,6 +72,9 @@
  * @ingroup themeable
  */
 ?>
+    <header>
+        <h1>Seedly</h1>
+    </header>
 
     <?php if (isset($tabs[ '#primary'][0]) || isset($tabs[ '#secondary'][0])): ?>
     <nav class="tabs drupalTabs">
