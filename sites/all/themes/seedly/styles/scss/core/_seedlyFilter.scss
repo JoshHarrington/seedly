@@ -1,19 +1,124 @@
 .seedlyFilter {
     > .views-exposed-widgets, &.newIdea-form {
         background-color: $darkerLightGrey;
-        padding: 1em 0;
+        padding: 1em 0 0;
         margin-bottom: 2em;
+    }
+    
+    &.newIdea-form {
+//        padding-bottom: 0;
+        form {
+            margin-bottom: 1em;
+        }
+        @extend %clearfix;
+    }
+    > .views-exposed-widgets > .fieldBtnWrap {
+        @extend %clearfix;
+        margin-bottom: 1em;
+    }
+    
+    .collapseBtn {
+        display: inline-block;
+        float: right;
+        background-color: $seedlyGreen;
+        margin-top: -1em;
+        cursor: pointer;
+        position: relative;
+        z-index: 2;
+        &:hover {
+            background-color: darken($seedlyGreen, 5%);
+        }
+        svg {
+            width: 3.3em;
+            height: 3em;
+//            pointer-events: none;
+        }
+        .less {
+            display: none;
+        }
+        &.down {
+            .more {
+                display: none;
+            }
+            .less {
+                display: block;
+            }
+        }
     }
     
     .node-idea-form {
         padding: 0 1em;
-        .form-item-title {
+        .form-item-title, .text-format-wrapper {
             label {
                 display: none;
             }
         }
         textarea {
             height: 14em;
+            padding: .8em;
+            border: none;
+        }
+        .form-item-title {
+            margin-bottom: 1em;
+            input {
+                width: 100%;
+                padding: .8em;
+                border: none;
+            }
+        }
+        .text-format-wrapper {
+            margin-bottom: 1em;
+        }
+        .form-type-checkboxes {
+            .description {
+                display: none;
+            }
+        }
+        .grippie {
+            display: none;
+        }
+        label[for="edit-field-category-und"] {
+            position: relative;
+            font-family: 'Noto Sans', sans-serif;
+            padding: 0 .6666em;
+            padding: 0 1rem;
+            font-size: 1.5em;
+            margin-left: -.6666em;
+            margin-left: -1rem;
+            margin-top: .4em;
+            margin-bottom: .8em;
+            display: block;
+            &:before {
+                position: absolute;
+                content: "";
+                left:-.5em;
+                width: .5em;
+                height: 140%;
+                top:-20%;
+                display: block;
+                background-color: $seedlyGreen;
+            }
+        }
+        .form-actions {
+            &:before {
+                content: "Happy? Then ";
+            }
+            input {
+                background-color: $seedlyGreen;
+                transition:background-color .3s;
+                border: none;
+//                width: 100%;
+                padding: .6em .8em;
+                color: white;
+                &:focus {
+                    border: none;
+                    outline: none;
+                }
+                &:hover {
+                    background-color: darken($seedlyGreen, 5%);
+                }
+            }
+
         }
     }
     
@@ -83,36 +188,36 @@
                 }
             }
         }
-        .bef-checkboxes, .form-checkboxes {
-            margin-bottom: 1em;
-            .form-item {
+    }
+    .bef-checkboxes, .form-checkboxes {
+        margin-bottom: 1em;
+        .form-item {
+            display: inline-block;
+            margin-right: .2em;
+            margin-bottom: .3em;
+            input {
+                @extend %hideInput;
+            }
+            label {
+                background-color: $seedlyPurple-light;
+                border-bottom: .15em solid $seedlyPurple;
                 display: inline-block;
-                margin-right: .2em;
-                margin-bottom: .3em;
-                input {
-                    @extend %hideInput;
-                }
-                label {
-                    background-color: $seedlyPurple-light;
-                    border-bottom: .15em solid $seedlyPurple;
-                    display: inline-block;
-                    padding: .6em;
-                    cursor: pointer;
-                    @extend %noHighlight;
-                    transition: background-color .3s, border-color .3s, color .3s;
-                    &:hover {
+                padding: .6em;
+                cursor: pointer;
+                @extend %noHighlight;
+                transition: background-color .3s, border-color .3s, color .3s;
+                &:hover {
 //                        color:white;
-                        background-color: darken($seedlyPurple-light, 5%);
-                    }
-                }
-                input:checked + label {
-                    color:white;
-                    background-color: $seedlyPurple;
-                    border-bottom: .15em solid $seedlyPurple-light;
+                    background-color: darken($seedlyPurple-light, 5%);
                 }
             }
-        } 
-    }
+            input:checked + label {
+                color:white;
+                background-color: $seedlyPurple;
+                border-bottom: .15em solid $seedlyPurple-light;
+            }
+        }
+    } 
     .form-select {
         border: 0;
         font-size: 1.2em;

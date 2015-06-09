@@ -1,7 +1,8 @@
 .node-type-idea {
 //    background-color: $darkerLightGrey;
+    padding-bottom: 5em;
     @include mq($until:tablet){
-        padding: 1.5em 1em;
+        padding: 1.5em 1em 5em 1.5em;
     }
     .region {
         background-color: white;
@@ -110,6 +111,10 @@
     width: 100%;
     max-width: 65em;
     z-index: 3;
+    width: calc(100% - 4em);
+    @include mq($until:tablet){
+        width: calc(100% - 2em);
+    }
     .addCommentBar {
         padding: 1em 2em;
         cursor: pointer;
@@ -250,10 +255,14 @@
     }
     .btn {
         padding: 1em;
-        background-color: $seedlyRed;
+//        background-color: $seedlyRed;
         position: relative;
         z-index: 2;
         display: block;
+        background-color: $lightGrey;
+        color: $seedlyRed;
+        border: 1px solid $seedlyRed;
+
     }
     
     .flyOut {

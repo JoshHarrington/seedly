@@ -54,25 +54,30 @@ var PAGE;
             }
         }
         
-        function whichThumb() {
-            if ($('.rate-widget').length) {
-                if ($('.rate-info').length) {
-                    var rateInfoText = $('.rate-info').text();
-                    if (rateInfoText.indexOf('yes') >= 0){
-                        /// add class to thumbs up to show it's already been picked
-                        $('.thumbUp').addClass('picked');
-                        $('.thumbDown').removeClass('picked');
-                    } else {
-                        /// add class to thumbs down to show it's already been picked
-                        $('.thumbDown').addClass('picked');
-                        $('.thumbUp').removeClass('picked');
-                    }
-                } else {
-                    $('.thumb-vote').removeClass('picked');
-                }
+        function collapseBtn() {
+            if ($('.seedlyFilter').length){
+                var newIdeaCollapseBtn = $('.newIdea-form .collapseBtn');
+                var filterFormCollapseBtn = $('.filter-form .collapseBtn');
+                
+//                newIdeaCollapseBtn.each(function(){
+//                    $(this).siblings('form').slideToggle();
+//                    $(this).toggleClass('down');
+//                });
+                filterFormCollapseBtn.each(function(){
+                    $(this).siblings('.fieldBtnWrap').slideToggle();
+                    $(this).toggleClass('down');                    
+                });
+                
+                newIdeaCollapseBtn.click(function(){
+                    $(this).siblings('form').slideToggle();
+                    $(this).toggleClass('down');
+                });
+                filterFormCollapseBtn.click(function(){
+                    $(this).siblings('.fieldBtnWrap').slideToggle();
+                    $(this).toggleClass('down');                    
+                });
             }
-        }
-        
+        }        
         
         return {
             // public members
@@ -82,7 +87,7 @@ var PAGE;
 //                PointerEventsPolyfill.initialize({});
                 showAddComments();
                 conductMessageCookie();
-//                whichThumb();
+                collapseBtn();
 
             }
         };

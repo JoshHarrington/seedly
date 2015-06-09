@@ -345,6 +345,52 @@
 			"setIdx": 1,
 			"setId": 0,
 			"iconIdx": 134
+		},
+		{
+			"icon": {
+				"paths": [
+					"M512 341.333l-256 256 60.373 60.373 195.627-195.627 195.627 195.627 60.373-60.373z"
+				],
+				"attrs": [],
+				"isMulticolor": false,
+				"tags": [
+					"expand-less"
+				],
+				"grid": 24
+			},
+			"attrs": [],
+			"properties": {
+				"id": 682,
+				"order": 16,
+				"prevSize": 24,
+				"name": "expand-less"
+			},
+			"setIdx": 1,
+			"setId": 0,
+			"iconIdx": 682
+		},
+		{
+			"icon": {
+				"paths": [
+					"M707.627 366.293l-195.627 195.627-195.627-195.627-60.373 60.373 256 256 256-256z"
+				],
+				"attrs": [],
+				"isMulticolor": false,
+				"tags": [
+					"expand-more"
+				],
+				"grid": 24
+			},
+			"attrs": [],
+			"properties": {
+				"id": 683,
+				"order": 17,
+				"prevSize": 24,
+				"name": "expand-more"
+			},
+			"setIdx": 1,
+			"setId": 0,
+			"iconIdx": 683
 		}
 	],
 	"height": 1024,

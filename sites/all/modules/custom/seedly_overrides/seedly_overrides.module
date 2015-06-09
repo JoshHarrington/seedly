@@ -33,6 +33,13 @@ function seedly_overrides_block_view($delta = '') {
   return $block;     
 }
 
+function seedly_overrides_form_alter(&$form, &$form_state, $form_id) {
+  if($form_id == 'idea_node_form') {
+    $form['title']['#attributes']['placeholder'] = "Give it a snappy title ...";
+     $form['body']['und'][0]['#attributes']['placeholder'] = "… and some descriptive body text";
+  }
+}   
+
 /*
 * Function to create the Add an Idea form
 */
@@ -71,7 +78,7 @@ function seedly_overrides_add_idea_form() {
   $form['body']['settings']['display_summary'] = FALSE;
   $form['body']['und'][0]['format']['#access'] = FALSE;
 
-  $form['actions']['submit']['#value'] = "Create New Idea!!";
+  $form['actions']['submit']['#value'] = "Add it!";
 
   unset($form['#groups']);
   unset($form['#fieldgroups']);
