@@ -45,13 +45,11 @@ function seedly_overrides_add_idea_form() {
   //extra stuff to make sure the form calls in properly
   $node = new stdClass();
   $node->type = 'idea';
-  $node->type = 'article';
 
   $node->language = (isset($user->language) && $user->language!= "") ? $user->language : "und";
   $node->uid = $user->uid;
   $node->name = $user->name;
   $form = drupal_get_form('idea_node_form', $node);
-  $form = drupal_get_form('article_node_form', $node);
 
  
   $form['author']['name']['default_value'] = $user->uid;
