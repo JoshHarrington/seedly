@@ -1,9 +1,22 @@
 .seedlyFilter {
-    > .views-exposed-widgets {
+    > .views-exposed-widgets, &.newIdea-form {
         background-color: $darkerLightGrey;
         padding: 1em 0;
         margin-bottom: 2em;
     }
+    
+    .node-idea-form {
+        padding: 0 1em;
+        .form-item-title {
+            label {
+                display: none;
+            }
+        }
+        textarea {
+            height: 14em;
+        }
+    }
+    
     h2 {
         position: relative;
         font-family: 'Noto Sans', sans-serif;
@@ -70,7 +83,7 @@
                 }
             }
         }
-        .bef-checkboxes {
+        .bef-checkboxes, .form-checkboxes {
             margin-bottom: 1em;
             .form-item {
                 display: inline-block;
