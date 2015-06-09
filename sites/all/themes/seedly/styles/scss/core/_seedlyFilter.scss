@@ -1,7 +1,9 @@
 .seedlyFilter {
-    background-color: $darkerLightGrey;
-    padding: 1em 0;
-    margin-bottom: 2em;
+    > .views-exposed-widgets {
+        background-color: $darkerLightGrey;
+        padding: 1em 0;
+        margin-bottom: 2em;
+    }
     h2 {
         position: relative;
         font-family: 'Noto Sans', sans-serif;

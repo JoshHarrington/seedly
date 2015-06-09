@@ -1,0 +1,84 @@
+<?php
+
+function seedly_overrides_theme($existing, $type, $theme, $path){
+  return array(
+    
+    'block__add_idea_form' => array( 
+      'variables' => array('content' => NULL),
+      'template' => 'block--add-idea-form',
+    ), 
+  );
+}
+
+function seedly_overrides_block_info() {  
+  $blocks['add_idea_block'] = 
+    array('info' => 'Add Idea Form Block', 'cache' => DRUPAL_NO_CACHE, 'pages' => '', 'region' => 'content', 'status' => 1, 'visibility' => BLOCK_VISIBILITY_LISTED);
+    
+  return $blocks;
+}
+
+function seedly_overrides_block_view($delta = '') {
+  $block = array();
+  
+  if (user_access('access content')) {
+    switch ($delta) {
+    
+      case 'add_idea_block' :
+        $block['subject'] = '<none>';
+        $block['content'] = seedly_overrides_add_idea_form();
+      break;
+     
+    };
+  } 
+  return $block;     
+}
+
+/*
+* Function to create the Add an Idea form
+*/
+function seedly_overrides_add_idea_form() {
+  global $user;
+  module_load_include('inc', 'node', 'node.pages');
+
+  $user_data = user_load($user->uid);
+
+  //extra stuff to make sure the form calls in properly
+  $node = new stdClass();
+  $node->type = 'idea';
+  $node->type = 'article';
+
+  $node->language = (isset($user->language) && $user->language!= "") ? $user->language : "und";
+  $node->uid = $user->uid;
+  $node->name = $user->name;
+  $form = drupal_get_form('idea_node_form', $node);
+  $form = drupal_get_form('article_node_form', $node);
+
+ 
+  $form['author']['name']['default_value'] = $user->uid;
+
+  //hide options we dont want users seeing
+  $form['author']['#access'] = false;
+  $form['menu']['#access'] = false;
+  $form['comment_settings']['#access'] = false;
+  $form['path']['#access'] = false;
+  $form['revision_information']['#access'] = false;
+  $form['options']['#access'] = false;
+  $form['xmlsitemap']['#access'] = false;
+  $form['metatags']['#access'] = false; 
+  $form['workbench_scheduler']['#access'] = false;  
+  $form['scheduler_settings']['#access'] = false;  
+  $form['print']['#access'] = array();   
+
+  
+  $form['body']['settings']['display_summary'] = FALSE;
+  $form['body']['und'][0]['format']['#access'] = FALSE;
+
+  $form['actions']['submit']['#value'] = "Create New Idea!!";
+
+  unset($form['#groups']);
+  unset($form['#fieldgroups']);
+  unset($form['#group_children']);
+  unset($form['actions']['preview']);
+  
+  return theme('block__add_idea_form', array('form' => $form));
+}
