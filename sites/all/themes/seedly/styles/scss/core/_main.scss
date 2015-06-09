@@ -88,6 +88,7 @@ html {
 //}
 
 header {
+    @extend %container;
     background-image: url('/sites/all/themes/seedly/img/barnimages_1904_03_small.jpg');
     background-size: cover;
     padding-top: 10em;
@@ -95,5 +96,6 @@ header {
     h1 {
         background-color: rgba(255, 255, 255, 0.6);
         padding: .5em .3em;
+        margin-bottom: 0;
     }
 }
