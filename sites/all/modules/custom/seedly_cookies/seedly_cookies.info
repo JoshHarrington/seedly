@@ -1,0 +1,7 @@
+name = Seedly Cookies
+description = "General Cookie Overrides for the Seedly Site"
+version = 1.0
+core = 7.x
+
+
+

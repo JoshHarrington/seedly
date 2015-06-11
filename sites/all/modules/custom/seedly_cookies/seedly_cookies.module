@@ -1,0 +1,4 @@
+<?php
+function custom_init(){
+drupal_add_js(drupal_get_path('module', 'custom') .'/jscript.js', 'file');
+}
